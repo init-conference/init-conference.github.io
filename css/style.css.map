@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "style.css",
-	"sourceRoot": "C:/Users/Miroslav/Projects/Hugo/init-conference",
+	"sourceRoot": "C:/Users/Miroslav.Popovic/source/hugo/init-conference",
 	"sources": [
 		"themes/init/assets/sass/main.scss",
 		"themes/init/assets/sass/general/_variables.scss",
