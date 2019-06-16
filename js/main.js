@@ -49,8 +49,11 @@ function scrollTo() {
 }
 
 function scrollAnchors(e, respond = null) {
-  document.getElementById('mobileMenuOpener').classList.remove('active');
-  document.getElementById('mobileMenu').style.display = 'none';
+  if (window.innerWidth < 768) {
+    console.log('aa');
+    document.getElementById('mobileMenuOpener').classList.remove('active');
+    document.getElementById('mobileMenu').style.display = 'none';
+  }
   const menuLinks = document.querySelectorAll('.menu__item__link');
   menuLinks.forEach(link => link.classList.remove('active'));
   const distanceToTop = el => Math.floor(el.getBoundingClientRect().top);
