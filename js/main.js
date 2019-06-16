@@ -3,6 +3,20 @@
   // smooth scroll
   scrollTo();
 
+  // Responsive menu
+  const mobileMenuOpener = document.getElementById('mobileMenuOpener');
+  const mobileMenu = document.getElementById('mobileMenu');
+  mobileMenuOpener.addEventListener('click', function(e){
+    e.preventDefault();
+    if(this.classList.contains('active')) {
+      this.classList.remove('active');
+      mobileMenu.style.display = "none";
+    } else {
+      this.classList.add('active');
+      mobileMenu.style.display = "block";
+    }
+  })
+
   // Sticky menu
   const section = document.getElementById('about');
   const nav = document.getElementById('js--sticky-nav');
