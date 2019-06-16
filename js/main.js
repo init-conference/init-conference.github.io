@@ -6,16 +6,16 @@
   // Responsive menu
   const mobileMenuOpener = document.getElementById('mobileMenuOpener');
   const mobileMenu = document.getElementById('mobileMenu');
-  mobileMenuOpener.addEventListener('click', function(e){
+  mobileMenuOpener.addEventListener('click', function (e) {
     e.preventDefault();
-    if(this.classList.contains('active')) {
+    if (this.classList.contains('active')) {
       this.classList.remove('active');
-      mobileMenu.style.display = "none";
+      mobileMenu.style.display = 'none';
     } else {
       this.classList.add('active');
-      mobileMenu.style.display = "block";
+      mobileMenu.style.display = 'block';
     }
-  })
+  });
 
   // Sticky menu
   const section = document.getElementById('about');
@@ -49,6 +49,8 @@ function scrollTo() {
 }
 
 function scrollAnchors(e, respond = null) {
+  document.getElementById('mobileMenuOpener').classList.remove('active');
+  document.getElementById('mobileMenu').style.display = 'none';
   const menuLinks = document.querySelectorAll('.menu__item__link');
   menuLinks.forEach(link => link.classList.remove('active'));
   const distanceToTop = el => Math.floor(el.getBoundingClientRect().top);
@@ -62,4 +64,3 @@ function scrollAnchors(e, respond = null) {
   this.classList.add('active');
   window.history.pushState('', '', targetID);
 }
-
