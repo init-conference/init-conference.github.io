@@ -67,3 +67,4 @@ function scrollAnchors(e, respond = null) {
   this.classList.add('active');
   window.history.pushState('', '', targetID);
 }
+
