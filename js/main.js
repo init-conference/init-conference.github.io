@@ -3,6 +3,20 @@
   // smooth scroll
   scrollTo();
 
+  // Jobs section
+  function toggleItem() {
+    const itemClass = this.parentNode.className;
+    if (itemClass === 'job-accordion__item job-accordion__item--open') {
+      this.parentNode.className = 'job-accordion__item';
+    } else {
+      this.parentNode.className = 'job-accordion__item job-accordion__item--open';
+    }
+  }
+  const jobPositions = document.querySelectorAll('.job-position');
+  jobPositions.forEach((position) => {
+    position.addEventListener('click', toggleItem, false);
+  });
+
   // Responsive menu
   const mobileMenuOpener = document.getElementById('mobileMenuOpener');
   const mobileMenu = document.getElementById('mobileMenu');
@@ -32,7 +46,7 @@
   window.addEventListener('scroll', (event) => {
     const menuLinks = document.querySelectorAll('.menu__item__link');
     menuLinks.forEach((link) => {
-      const id = document.getElementById(link.getAttribute('href').substr(1));
+      const id = document.getElementById(link.getAttribute('href').split('#')[1]);
       const elPosition = id.offsetTop - 155;
       if (window.scrollY > elPosition && window.scrollY < elPosition + id.offsetHeight) {
         link.classList.add('active');
@@ -44,13 +58,12 @@
 }());
 
 function scrollTo() {
-  const links = document.querySelectorAll('.scrollTo');
+  const links = document.querySelectorAll('.home .scrollTo');
   links.forEach(each => (each.onclick = scrollAnchors));
 }
 
 function scrollAnchors(e, respond = null) {
   if (window.innerWidth < 768) {
-    console.log('aa');
     document.getElementById('mobileMenuOpener').classList.remove('active');
     document.getElementById('mobileMenu').style.display = 'none';
   }
@@ -58,7 +71,10 @@ function scrollAnchors(e, respond = null) {
   menuLinks.forEach(link => link.classList.remove('active'));
   const distanceToTop = el => Math.floor(el.getBoundingClientRect().top);
   e.preventDefault();
-  const targetID = respond ? respond.getAttribute('href') : this.getAttribute('href');
+  const targetID = respond
+    ? respond.getAttribute('href')
+    : `#${this.getAttribute('href').split('#')[1]}`;
+  console.log(targetID);
   const targetAnchor = document.querySelector(targetID);
   if (!targetAnchor) return;
   const originalTop = distanceToTop(targetAnchor);
@@ -67,4 +83,3 @@ function scrollAnchors(e, respond = null) {
   this.classList.add('active');
   window.history.pushState('', '', targetID);
 }
-
