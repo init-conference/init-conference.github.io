@@ -35,15 +35,16 @@
   const section = document.getElementById('about');
   const nav = document.getElementById('js--sticky-nav');
   window.addEventListener('scroll', (event) => {
+    if(!section) {
+      return;
+    }
     const fromTop = window.scrollY;
     if (section.offsetTop - 150 <= fromTop) {
       nav.classList.add('sticky');
     } else {
       nav.classList.remove('sticky');
     }
-  });
 
-  window.addEventListener('scroll', (event) => {
     const menuLinks = document.querySelectorAll('.menu__item__link');
     menuLinks.forEach((link) => {
       const id = document.getElementById(link.getAttribute('href').split('#')[1]);
@@ -54,6 +55,7 @@
         link.classList.remove('active');
       }
     });
+
   });
 }());
 

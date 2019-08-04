@@ -8,6 +8,11 @@
   </url>
   
   <url>
+    <loc>https://initconf.org/tickets/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://initconf.org/categories/</loc>
     <priority>0</priority>
   </url>
