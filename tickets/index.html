@@ -133,6 +133,21 @@
                                         >
                                         to buy tickets.
                                     </p></iframe>
+                                <script type="text/javascript">
+                                    if(document.getElementById('_amiandoIFrame3789395')) {
+                                        var last_iframe_height = 0;
+                                        setInterval(function() {
+                                                var iframe = document.getElementById('_amiandoIFrame3789395');
+
+                                                if(last_iframe_height <= 0) {
+                                                        last_iframe_height = iframe.clientHeight;
+                                                } else if(last_iframe_height != iframe.clientHeight) {
+                                                        last_iframe_height = iframe.clientHeight;
+                                                        document.body.scrollTop = document.getElementsByClassName("tickets-section")[0].offsetTop;
+                                                }
+                                        }, 200);
+                                    }
+</script>
                             </div>
                         </div>
                     </div>
