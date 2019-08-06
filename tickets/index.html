@@ -143,7 +143,8 @@
                                                         last_iframe_height = iframe.clientHeight;
                                                 } else if(last_iframe_height != iframe.clientHeight) {
                                                         last_iframe_height = iframe.clientHeight;
-                                                        document.body.scrollTop = document.getElementsByClassName("tickets-section")[0].offsetTop;
+                                                        iframe.scrollIntoView();
+                                                        //document.body.scrollTop = document.getElementsByClassName("tickets-section")[0].offsetTop;
                                                 }
                                         }, 200);
                                     }
