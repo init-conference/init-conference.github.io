@@ -35,7 +35,7 @@
   const section = document.getElementById('about');
   const nav = document.getElementById('js--sticky-nav');
   window.addEventListener('scroll', (event) => {
-    if(!section) {
+    if (!section) {
       return;
     }
     const fromTop = window.scrollY;
@@ -55,8 +55,20 @@
         link.classList.remove('active');
       }
     });
-
   });
+
+  if (document.getElementById('_amiandoIFrame3789395')) {
+    let last_iframe_height = 0;
+    setInterval(() => {
+      const iframe = document.getElementById('_amiandoIFrame3789395');
+      if (last_iframe_height <= 0) {
+        last_iframe_height = iframe.clientHeight;
+      } else if (last_iframe_height != iframe.clientHeight) {
+        last_iframe_height = iframe.clientHeight;
+        iframe.scrollIntoView();
+      }
+    }, 200);
+  }
 }());
 
 function scrollTo() {
