@@ -48,7 +48,13 @@
     const menuLinks = document.querySelectorAll('.menu__item__link');
     menuLinks.forEach((link) => {
       const id = document.getElementById(link.getAttribute('href').split('#')[1]);
+      
+      if (!id) {
+        return;
+      }
+
       const elPosition = id.offsetTop - 155;
+      
       if (window.scrollY > elPosition && window.scrollY < elPosition + id.offsetHeight) {
         link.classList.add('active');
       } else {
